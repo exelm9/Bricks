@@ -7,6 +7,8 @@
     	* { padding: 0; margin: 0; }
     	canvas { background: #eee; display: block; margin: 0 auto; }
     </style>
+    <script src="bricks.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 </head>
 <body>
 
@@ -14,35 +16,7 @@
 <canvas id="myCanvas" width="480" height="320"></canvas>
 
 <script>
-	// store reference to canvas element
-	var canvas = document.getElementById("myCanvas");
-	// stores 2d rendering
-	var ctx = canvas.getContext("2d");
-
-	// rectangle
-	ctx.beginPath();
-	ctx.rect(20, 40, 50, 50);
-	ctx.fillStyle = "#FF0000";
-	ctx.fill();
-	ctx.closePath();
-
-
-	// rectangle
-	ctx.beginPath();
-	// first two args top left.  Next two args size of rect
-	ctx.rect(160, 10, 100, 40);
-	ctx.strokeStyle = "rgba(0, 0, 255, 0.5)";
-	// adds border instead of fully colored shape
-	ctx.stroke();
-	ctx.closePath();
-
-	// circle
-	ctx.beginPath();
-	// first two args x and y coordinates, then radius, start and end angle, false clockwise
-	ctx.arc(240, 160, 20, 0, Math.PI*2, false);
-	ctx.fillStyle = "green";
-	ctx.fill();
-	ctx.closePath();
+	
 </script>
 
 </body>
