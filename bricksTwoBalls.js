@@ -13,6 +13,12 @@ $(document).ready(function(){
     // speed of the ball
     var drawX = -2;
     var drawY = -2;
+
+    var x1 = canvas.width/2;
+    var y2 = canvas.height-30;
+    // speed of the ball
+    var drawX1 = 2;
+    var drawY2 = 2;
     // ball raidus
     var ballRadius = 10;
 
@@ -24,7 +30,7 @@ $(document).ready(function(){
         ctx.closePath();
 
         ctx.beginPath();
-        ctx.arc(x, y, ballRadius, 0, Math.PI*2);
+        ctx.arc(x1, y2, ballRadius, 0, Math.PI*2);
         ctx.fillStyle = "#0095DD";
         ctx.fill();
         ctx.closePath();
@@ -40,8 +46,11 @@ $(document).ready(function(){
 
         x += drawX;
         y += drawY;
+        x1 += drawX1;
+        y2 += drawY2;
 
         collisions(x,y);
+        collisions1(x1,y2);
         
     }
 
@@ -54,51 +63,17 @@ $(document).ready(function(){
             drawY = -drawY;
         }
     }
+
+    function collisions1(x,y){
+        if(x + drawX1 > canvas.width - ballRadius || x + drawX1 < ballRadius) {
+            drawX1 = -drawX1;
+        }
+
+        if(y + drawY2 > canvas.height - ballRadius || y + drawY2 < ballRadius) {
+            drawY2 = -drawY2;
+        }
+    }
     // redraws with new coordinates
     setInterval(draw, 10);
 })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//1.Exercise: try changing the size and color of the given shapes.
-// // rectangle
-// ctx.beginPath();
-// ctx.rect(20, 40, 50, 50);
-// ctx.fillStyle = "#FF0000";
-// ctx.fill();
-// ctx.closePath();
-
-
-// // rectangle
-// ctx.beginPath();
-// // first two args top left.  Next two args size of rect
-// ctx.rect(160, 10, 100, 40);
-// ctx.strokeStyle = "rgba(0, 0, 255, 0.5)";
-// // adds border instead of fully colored shape
-// ctx.stroke();
-// ctx.closePath();
-
-// // circle
-// ctx.beginPath();
-// // first two args x and y coordinates, then radius, start and end angle, false clockwise
-// ctx.arc(240, 160, 20, 0, Math.PI*2, false);
-// ctx.fillStyle = "green";
-// ctx.fill();
-// ctx.closePath();
-
-//2.Exercise: try changing the speed of the moving ball, or the direction it moves in.
